@@ -1,0 +1,79 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Main area start -->
+<main>
+    <!-- Intro section start -->
+    <section id="particle-canvas-contact">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 p-0">
+                    <div class="header-content text-center">
+                        <canvas id="canvas" class="canvas"></canvas>
+                        <h3>Əlaqə</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Intro section end -->
+    <!-- Contact section start -->
+    <section id="contact">
+        <div class="container-fluid">
+            <div class="row contact-infos">
+                <div class="col-lg-6">
+                    <div class="contact-img">
+                        <img src="images/@Model.Image" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 mt-5">
+                    <div class="contact-address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>
+                           @Html.Raw(Model.Address)
+                        </p>
+                    </div>
+                    <div class="contact-mail">
+                        <i class="fas fa-envelope"></i>
+                        <p>
+                            @Model.Mail
+                        </p>
+                    </div>
+                    <div class="contact-phone mt-4">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>
+                           @Model.PhoneNumber
+                        </p>
+                    </div>
+                    <div class="social-links mt-4">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-12 p-0">
+                    <div class="full map-section">
+                        <div id="map">
+                            <div id="googleMap" style="width:100%;height:440px;">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6078.9310940031055!2d49.8410052!3d40.3763735!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x92f42463a7364219!2sAlpha%20Gym!5e0!3m2!1sen!2s!4v1612347715562!5m2!1sen!2s"
+                                        width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""
+                                        aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact section end -->
+    <!-- Google Map -->
+    <!-- Google Map -->
+
+</main>
+<!-- Main area end -->

@@ -1,0 +1,65 @@
+﻿@model Services
+@{
+    ViewData["Title"] = "ServiceDetails";
+}
+
+<!-- Main area start -->
+<main>
+    <!-- Intro section start -->
+    <section id="particle-canvas-serviceDetails">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 m-0 p-0">
+                    <div class="header-content text-center">
+                        <canvas id="canvas" class="canvas"></canvas>
+                        <h3>Service Details</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Intro section end -->
+    <!-- Services section start -->
+    <div class="service-details-area mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12 text-center">
+                    <div class="service-details-content ml-50">
+                        <h2>@Model.Title</h2>
+                        <div class="service-details-img mt-5 mb-5">
+                            <img src="~/images/service/@Model.ServiceDetails.Image" alt="developer">
+                        </div>
+                        <h4>about service</h4>
+                        <p>@Model.ServiceDetails.Description</p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="service-developers text-center">
+                        <h4>Developers engaged in this service</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (ServiceDevelopers sd in Model.ServiceDevelopers)
+                {
+                    <div class="col-lg-3 developers">
+                        <div class="developer-content text-center">
+                            <img src="~/images/team/@sd.Developers.Image" alt="">
+                            <h4 class="m-0">@sd.Developers.Name</h4>
+                            <span>@sd.Developers.Profession</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Services section end -->
+
+
+</main>
+<!-- Main area end -->

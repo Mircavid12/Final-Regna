@@ -1,0 +1,47 @@
+﻿@model List<FactCounters>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Facts</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Count
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (FactCounters fc in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @fc.Name
+                                </td>
+                                <td>
+                                    @fc.Count
+                                </td>
+                                <td>
+                                    <a asp-controller="Fact" asp-action="Update" asp-route-id="@fc.Id" class="btn btn-warning">
+                                        <i class="mdi mdi-table-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

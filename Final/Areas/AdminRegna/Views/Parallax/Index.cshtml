@@ -1,0 +1,48 @@
+﻿@model Parallax
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Parallax</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Model.Title
+                            </td>
+                            <td>
+                                @Model.Description
+                            </td>
+                            <td>
+                                <a asp-controller="Parallax" asp-action="Detail" asp-route-id="@Model.Id" class="btn btn-secondary">
+                                    <i class="mdi mdi-information"></i>
+                                </a>
+                                <a asp-controller="Parallax" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-warning">
+                                    <i class="mdi mdi-table-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

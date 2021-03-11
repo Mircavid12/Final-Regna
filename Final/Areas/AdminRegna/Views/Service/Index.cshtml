@@ -1,0 +1,50 @@
+﻿@model List<Services>
+@{
+    ViewData["Title"] = "Service";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Services</h4>
+            <a asp-controller="Service" asp-action="Create" class="btn btn-success">
+                Create
+            </a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Services s in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @s.Title
+                                </td>
+                                <td>
+                                    <a asp-controller="Service" asp-action="Detail" asp-route-id="@s.Id" class="btn btn-secondary">
+                                        <i class="mdi mdi-information"></i>
+                                    </a>
+                                    <a asp-controller="Service" asp-action="Update" asp-route-id="@s.Id" class="btn btn-warning">
+                                        <i class="mdi mdi-table-edit"></i>
+                                    </a>
+                                    <a asp-controller="Service" asp-action="Delete" asp-route-id="@s.Id" class="btn btn-danger">
+                                        <i class="mdi mdi-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

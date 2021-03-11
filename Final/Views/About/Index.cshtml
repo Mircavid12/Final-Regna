@@ -1,0 +1,55 @@
+﻿@model AboutVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Main area start -->
+<main>
+    <!-- Intro section start -->
+    <section id="particle-canvas-about">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 m-0 p-0">
+                    <div class="about-header text-center">
+                        <canvas id="canvas" class="canvas"></canvas>
+                        <h3>Haqqımızda</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Intro section end -->
+    <!-- About section start -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 about-content">
+                    <h2>@Model.About.Title</h2>
+                    <p>
+                        @Model.About.Description
+                    </p>
+                    @foreach (AboutDetail aboutDetail in Model.AboutDetails)
+                        {
+                <div class="content-part">
+                    <div class="icon-div">
+                        @Html.Raw(aboutDetail.Icon)
+                    </div>
+                    <div class="description">
+                        <h4 class="m-0">@aboutDetail.Title</h4>
+                        <p class="m-0">
+                            @aboutDetail.Description
+                        </p>
+                    </div>
+                </div>
+                        }
+                </div>
+                <div class="col-lg-6 about-photo">
+                    <img src="~/images/@Model.About.Image" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About section end -->
+
+</main>
+<!-- Main area end -->

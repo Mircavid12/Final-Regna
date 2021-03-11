@@ -1,0 +1,27 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-lg-12">
+                <img src="~/images/@Model.Image" width="400" />
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Contact Address: <br /> <br /> @Model.Address</h4>
+                    <h4 class="card-title">Contact Mail: <br /> <br /> @Model.Mail</h4>
+                    <h4 class="card-title">Contact PhoneNumber: <br /> <br /> @Model.PhoneNumber</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<a asp-action="Index" class="btn btn-secondary">Go Back</a>
+
+
+
+

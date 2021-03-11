@@ -1,0 +1,63 @@
+﻿@model Bio 
+<!-- Header area start -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
+        <div class="container-fluid myNavbar">
+            <a class="navbar-brand " asp-controller="Home" asp-action="Index">
+                <img src="~/images/@Model.Logo" alt="" />
+            </a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" asp-controller="Home" asp-action="Index">Ana Səhifə</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link about-nav text-white" aria-current="page" asp-controller="About" asp-action="Index">Haqqımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" asp-controller="Service" asp-action="Index">Xidmətlər</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" asp-controller="Portfolio" asp-action="Index">Proyektlər</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" asp-controller="Team" asp-action="Index">Komandamız</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" asp-controller="Contact" asp-action="Index">Əlaqə</a>
+                    </li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" asp-controller="Account" asp-action="Login">Daxil ol</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" asp-controller="Account" asp-action="Register">Qeydiyyat</a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="text-white">@User.Identity.Name</li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" asp-controller="Account" asp-action="Logout">Logout</a>
+                        </li>
+                    }
+                    <li class="nav-item apply" style="margin-top: 2px;">
+                        <a style="text-decoration: none;" class="rounded-pill" aria-current="page" asp-controller="Apply" asp-action="Index">Müraciət et</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Header area end -->

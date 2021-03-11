@@ -1,0 +1,64 @@
+﻿@model List<Portfolio>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Main area start -->
+<main>
+    <!-- Intro section start -->
+    <section id="particle-canvas-portfolio">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 m-0 p-0">
+                    <div class="header-content text-center">
+                        <canvas id="canvas" class="canvas"></canvas>
+                        <h3>Proyektlər</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Intro section end -->
+    <!-- Portfolio section start -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 ml-auto mr-auto mt-5">
+                    <div class="menu">
+                        <ul class="portfolio-list list-item d-flex justify-content-around">
+                            <li data-filter=".all" class="list-inline-item active">All</li>
+                            <li data-filter=".app" class="list-inline-item">App</li>
+                            <li data-filter=".card" class="list-inline-item">Card</li>
+                            <li data-filter=".logo" class="list-inline-item">Logo</li>
+                            <li data-filter=".web" class="list-inline-item">Web</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row grid">
+                @foreach (Portfolio portfolio in Model)
+                {
+                    <div class="col-lg-3 portfolio-card @portfolio.Category all">
+                        <a asp-controller="Portfolio" asp-action="PortfolioDetails" asp-route-id="@portfolio.Id">
+
+                            @foreach (PortfolioImages item in portfolio.PortfolioImages.Take(1))
+                            {
+                                <img src="~/images/portfolio/@item.Name" alt="">
+                                <div class="details">
+                                    <h4>@portfolio.Name</h4>
+                                    <span>@portfolio.Category</span>
+                                </div>
+                            }
+
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio section end -->
+    <!-- Google Map -->
+    <!-- Google Map -->
+
+</main>
+<!-- Main area end -->

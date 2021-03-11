@@ -1,0 +1,217 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Main area start -->
+<main>
+    <!-- Intro section start -->
+    <!-- <div id="large-header" class="large-header" style="height: 304px; background-image: url('images/demo-1-bg.jpg');">
+      <canvas id="demo-canvas" width="1366" height="304"></canvas>
+        <h1 class="main-title">Connect <span class="thin">Three</span></h1>
+    </div> -->
+    <section id="particle-canvas">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 m-0 p-0">
+                    <div class="content text-center">
+                        <canvas id="canvas" class="canvas"></canvas>
+                        <h1>@Model.Intro.Title</h1>
+                        <h2>
+                            @Model.Intro.Description
+                        </h2>
+                        <a asp-controller="Service" asp-action="Index" class="btn rounded-pill">Get Started</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Intro section end -->
+    <!-- About section start -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 about-content">
+                    <h2 data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">@Model.About.Title</h2>
+                    <p data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                        @Model.About.Description
+                    </p>
+                    @foreach (AboutDetail ad in Model.AboutDetails)
+                    {
+                        <div class="content-part" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                            <div class="icon-div">
+                                @Html.Raw(ad.Icon)
+                            </div>
+                            <div class="description">
+                                <h4 class="m-0">@ad.Title</h4>
+                                <p class="m-0">
+                                    @ad.Description
+                                </p>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="col-lg-6 about-photo" >
+                    <img src="~/images/@Model.About.Image" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About section end -->
+    <!-- Facts section start -->
+    <section id="facts">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header text-center" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                        <h3>@Model.Facts.Title</h3>
+                        <p>
+                            @Model.Facts.Description
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row counters">
+                @foreach (FactCounters fc in Model.FactCounters)
+                {
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                        <span class="counter" data-target="@fc.Count">0</span>
+                        <p>@fc.Name</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Facts section end -->
+    <!-- Services section start -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="service-header text-center" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                        <h3>Xİdmətlər</h3>
+                        <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                            accusantium doloremque
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                @foreach (Services service in Model.Services.Take(6))
+                {
+                <div class="col-lg-4 col-md-6 text-center mt-5" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <div class="service-card">
+                        <div class="icon mb-3">
+                            <a asp-controller="Service" asp-action="ServiceDetails" asp-route-id="@service.Id">
+                                @Html.Raw(service.Icon)
+                            </a>
+                        </div>
+                        <h4>@service.Title</h4>
+                        <p>
+                            @service.Description
+                        </p>
+                    </div>
+                </div>
+                }
+                
+            </div>
+        </div>
+    </section>
+    <!-- Services section end -->
+    <!-- Action parallax section start -->
+    <section id="parallax" style="background-image: url('images/@Model.Parallax.Image')">
+        <div class="container" >
+            <div class="row">
+                <div class="col-lg-9 mt-4">
+                    <h3>@Model.Parallax.Title</h3>
+                    <p>
+                        @Model.Parallax.Description
+                    </p>
+                </div>
+                <div class="col-lg-3 mt-5">
+                    <a asp-controller="Apply" asp-action="Index" class="btn rounded-pill">Call To Action</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Action parallax section start -->
+    <!-- Portfolio section start -->
+    <section id="portfolio" style="background: #f7f7f7;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <div class="header-content text-center">
+                        <h3>Proyektlər</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 ml-auto mr-auto mt-5">
+                    <div class="menu">
+                        <ul class="portfolio-list list-item d-flex justify-content-around">
+                            <li data-filter=".all" class="list-inline-item active">All</li>
+                            <li data-filter=".app" class="list-inline-item">App</li>
+                            <li data-filter=".card" class="list-inline-item">Card</li>
+                            <li data-filter=".logo" class="list-inline-item">Logo</li>
+                            <li data-filter=".web" class="list-inline-item">Web</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row grid">
+                @foreach (Portfolio portfolio in Model.Portfolios)
+                {
+                <div class="col-lg-3 portfolio-card @portfolio.Category all">
+                    <a asp-controller="Portfolio" asp-action="PortfolioDetails" asp-route-id="@portfolio.Id">
+
+                        @foreach (PortfolioImages item in portfolio.PortfolioImages.Take(1))
+                        {
+                            <img src="~/images/portfolio/@item.Name" alt="">
+                            <div class="details">
+                                <h4>@portfolio.Name</h4>
+                                <span>@portfolio.Category</span>
+                            </div>
+                        }
+
+                    </a>
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio section end -->
+    <!-- Team section start -->
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-content text-center" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                        <h3>Komandamız</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (Developers developers in Model.Developers.Take(4))
+                {
+                    <div class="col-lg-3">
+                        <div class="member-content text-center">
+                            <a asp-controller="Team" asp-action="TeamDetails" asp-route-id="@developers.Id"><img src="images/team/@developers.Image" alt=""></a>
+                            <h4 class="m-0">@developers.Name</h4>
+                            <span>@developers.Profession</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Team section end -->
+    <!-- Google Map -->
+    <!-- Google Map -->
+
+</main>
+<!-- Main area end -->

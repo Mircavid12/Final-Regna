@@ -1,0 +1,97 @@
+﻿@model ApplyVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Main area start -->
+<main>
+    <!-- Intro section start -->
+    <section id="particle-canvas-apply">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 m-0 p-0">
+                    <div class="header-content text-center">
+                        <canvas id="canvas" class="canvas"></canvas>
+                        <h3>Müraciət et</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Intro section end -->
+    <!-- Apply area start -->
+    <section id="apply">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="apply-img">
+                        <img src="images/@Model.Apply.Image" alt="" />
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <form method="post" asp-action="Indexx">
+                        <div class="mb-3 first-last">
+                            <div class="mb-3 firstName">
+                                <input
+                                       asp-for="@Model.Email.FirstName"
+                                       type="text"
+                                       class="form-control"
+                                       id="exampleInputEmail1"
+                                       aria-describedby="emailHelp"
+                                       placeholder="FirstName" />
+                                <span asp-validation-for="@Model.Email.FirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3 lastName ml-auto">
+                                <input asp-for="@Model.Email.LastName"
+                                       type="text"
+                                       class="form-control"
+                                       id="exampleInputPassword1"
+                                       placeholder="LastName" />
+                                <span asp-validation-for="@Model.Email.LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 d-flex">
+                            <select asp-for="Email.PhoneSerie" class="form-select select-number" id="inputGroupSelect01">
+                                <option selected>050</option>
+                                @foreach (ApplyNumberSerie item in Model.Apply.ApplyNumberSeries)
+                                {
+                                    <option >@item.Number</option>
+                                }
+                            </select>
+                            <input asp-for="@Model.Email.PhoneNumber"
+                                   type="tel"
+                                   class="form-control number-input"
+                                   id="exampleInputPassword1"
+                                   placeholder="XXX-XX-XX"
+                                   maxlength="7" />
+                            <span asp-validation-for="@Model.Email.PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="input-group mb-3">
+                            <select asp-for="Email.Service"  class="form-select select-service" id="inputGroupSelect01">
+                                <option selected>Xidmət növünü seçin</option>
+                                @foreach (var mainCtg in ViewBag.Service)
+                                {
+                                    <option>@mainCtg.Title</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="mb-3 message">
+                            <input asp-for="@Model.Email.Message"
+                                   type="text"
+                                   class="form-control"
+                                   id="exampleInputPassword1"
+                                   placeholder="Message" />
+                            <span asp-validation-for="@Model.Email.Message" class="text-danger"></span>
+                        </div>
+                        <button type="submit"  class="btn send_btn">Göndər</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Apply area end -->
+</main>
+<!-- Main area end -->

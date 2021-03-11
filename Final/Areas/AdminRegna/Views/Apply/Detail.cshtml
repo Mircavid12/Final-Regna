@@ -1,0 +1,29 @@
+﻿@model Apply
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-lg-12">
+                <img src="~/images/@Model.Image" width="400" />
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Apply FirstName: <br /> <br /> @Model.FirstName</h4>
+                    <h4 class="card-title">Apply LastName: <br /> <br /> @Model.LastName</h4>
+                    <h4 class="card-title">Apply Service: <br /> <br /> @Model.Service</h4>
+                    <h4 class="card-title">Apply Message: <br /> <br /> @Model.Message</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<a asp-action="Index" class="btn btn-secondary">Go Back</a>
+
+
+
+
+

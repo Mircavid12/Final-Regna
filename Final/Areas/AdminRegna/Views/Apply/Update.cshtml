@@ -1,0 +1,51 @@
+﻿@model Apply
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update Apply</h4>
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="@Model.FirstName">Apply FirstName</label>
+                    <input asp-for="@Model.FirstName" class="form-control" placeholder="FirstName">
+                    <span class="text-danger" asp-validation-for="@Model.FirstName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.LastName">Apply LastName</label>
+                    <input asp-for="@Model.LastName" class="form-control" placeholder="LastName">
+                    <span class="text-danger" asp-validation-for="@Model.LastName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Service">Apply Service</label>
+                    <input asp-for="@Model.Service" class="form-control" placeholder="Service">
+                    <span class="text-danger" asp-validation-for="@Model.Service"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Message">Apply Message</label>
+                    <input asp-for="@Model.Message" class="form-control" placeholder="Message">
+                    <span class="text-danger" asp-validation-for="@Model.Message"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Photo"></label>
+                    <input asp-for="@Model.Photo" class="form-control" placeholder="Select Photo">
+                    <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Update</button>
+                <a class="btn btn-light" asp-action="Index">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_Validation" />
+}
+
+
+
+
+
+

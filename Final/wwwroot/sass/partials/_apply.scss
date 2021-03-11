@@ -1,0 +1,113 @@
+#particle-canvas-apply {
+    position: relative;
+      
+      .header-content{
+        .canvas {
+            background: linear-gradient(to bottom,#212129,#b17300);
+            width: 100%;
+            height: 35vh;
+          }
+        h3{
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 56px;
+            font-family: 'Poppins', sans-serif;
+            position: absolute;
+	        margin: 0;
+	        padding: 0;
+	        text-align: center;
+	        top: 60%;
+	        left: 50%;
+            z-index: 12;
+	        -webkit-transform: translate3d(-50%,-50%,0);
+	        transform: translate3d(-50%,-50%,0);
+        }
+    }
+}
+
+#apply {
+    padding: 50px 0;
+
+    .apply-img {
+        img {
+            max-width: 100%;
+        }
+    }
+
+    form {
+        input {
+            padding: 27px;
+            border-radius: 0;
+
+            &::placeholder {
+                font-size: 17px;
+                color: #999;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 500;
+            }
+        }
+
+        .first-last {
+            display: flex;
+
+            .firstName {
+                width: 47%;
+
+                input {
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            .lastName {
+                width: 47%;
+                float: right;
+            }
+        }
+
+        .select-number {
+            padding: 15px 20px;
+            position: absolute;
+            border: none;
+            top: 89px;
+            left: 16px;
+            color: #999;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .number-input {
+            padding: 27px 27px 27px 120px;
+        }
+
+        .select-service {
+            width: 100%;
+            padding: 16px 23px;
+            font-size: 17px;
+            color: #999;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 500;
+            border: 1px solid rgb(207, 207, 207);
+        }
+
+        .message {
+            input {
+                padding: 27px 27px 200px 27px;
+            }
+        }
+
+        .send_btn {
+            width: 100%;
+            background-color: #2dc997;
+            color: white;
+            padding: 15px;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: "Open Sans", sans-serif;
+        }
+    }
+}

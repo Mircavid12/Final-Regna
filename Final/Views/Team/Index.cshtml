@@ -1,0 +1,68 @@
+﻿@model List<Developers>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Main area start -->
+<main>
+    <!-- Intro section start -->
+    <section id="particle-canvas-team">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 m-0 p-0">
+                    <div class="header-content text-center">
+                        <canvas id="canvas" class="canvas"></canvas>
+                        <h3>Komandamız</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Intro section end -->
+    <!-- Team section start -->
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                @foreach (Developers developers in Model)
+                {
+                    <div class="col-lg-3">
+                        <div class="member-content text-center">
+                            <a asp-controller="Team" asp-action="TeamDetails" asp-route-id="@developers.Id"><img src="images/team/@developers.Image" alt=""></a>
+                            <h4 class="m-0">@developers.Name</h4>
+                            <span>@developers.Profession</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row text-center mt-5 d-flex justify-content-center">
+                <nav aria-label="...">
+                    <ul class="pagination pagination-lg">
+
+                        @for (int i = 1; i <= ViewBag.PageCount; i++)
+                        {
+                            if (i == ViewBag.page)
+                            {
+                                <li class="page-item active" aria-current="page">
+                                    <span class="page-link">@i</span>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" asp-controller="Team"
+                                       asp-action="Index"
+                                       asp-route-page="@i">@i</a>
+                                </li>
+                            }
+
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- Team section end -->
+
+
+</main>
+<!-- Main area end -->
