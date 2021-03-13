@@ -62,6 +62,7 @@ namespace Final.Areas.AdminRegna.Controllers
                 viewAbout.Image = fileName;
             }
             viewAbout.Title = About.Title;
+            viewAbout.Description = About.Description;
             About.IsDeleted = false;
 
             await _db.SaveChangesAsync();

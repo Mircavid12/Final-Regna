@@ -43,6 +43,7 @@ namespace Final.Areas.AdminRegna.Controllers
 
 
             viewIntro.Title = intro.Title;
+            viewIntro.Description = intro.Description;
             intro.IsDeleted = false;
 
             await _db.SaveChangesAsync();

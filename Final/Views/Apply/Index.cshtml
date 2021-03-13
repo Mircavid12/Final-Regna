@@ -56,10 +56,7 @@
                         <div class="mb-3 d-flex">
                             <select asp-for="Email.PhoneSerie" class="form-select select-number" id="inputGroupSelect01">
                                 <option selected>050</option>
-                                @foreach (ApplyNumberSerie item in Model.Apply.ApplyNumberSeries)
-                                {
-                                    <option >@item.Number</option>
-                                }
+                                
                             </select>
                             <input asp-for="@Model.Email.PhoneNumber"
                                    type="tel"

@@ -8629,11 +8629,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Power Electronics\\source\\repos\\Final\\Final\\Final.csproj",
+      "projectUniqueName": "C:\\Users\\Power Electronics\\source\\repos\\Final\\Final-Regna\\Final\\Final.csproj",
       "projectName": "Final",
-      "projectPath": "C:\\Users\\Power Electronics\\source\\repos\\Final\\Final\\Final.csproj",
+      "projectPath": "C:\\Users\\Power Electronics\\source\\repos\\Final\\Final-Regna\\Final\\Final.csproj",
       "packagesPath": "C:\\Users\\Power Electronics\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Power Electronics\\source\\repos\\Final\\Final\\obj\\",
+      "outputPath": "C:\\Users\\Power Electronics\\source\\repos\\Final\\Final-Regna\\Final\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Power Electronics\\AppData\\Roaming\\NuGet\\NuGet.Config",

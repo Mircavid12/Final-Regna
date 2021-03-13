@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Final.DAL;
+using Final.Extentions;
 using Final.Models;
 using Final.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -44,9 +45,43 @@ namespace Final.Areas.AdminRegna.Controllers
             //return Json(usersVM);
             return View(usersVM);
         }
+
+
+
+
+        //Change Password
+        public IActionResult ResetPassword(string id)
+        {    
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(string id,ResetPasswordVM regs)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            AppUser user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                ModelState.AddModelError("","We couldn't find user");
+                return View();
+            }
+            string passwordToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            await _userManager.ResetPasswordAsync(user,passwordToken,regs.Password);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
+
+        //Change Status
         public async Task<IActionResult> ChangeStatus(string id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -81,6 +116,87 @@ namespace Final.Areas.AdminRegna.Controllers
             }
             await _userManager.UpdateAsync(user);
             return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+        //Change Role
+        public async Task<IActionResult> ChangeRole(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            AppUser user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            if (user.UserName==User.Identity.Name)
+            {
+                return Content("Something went wrong!");
+            }
+            UserVM userVM = await GetUserVM(user);
+            return View(userVM);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeRole(string id,string role)
+        {
+            if (id == null || role==null)
+            {
+                return NotFound();
+            }
+            AppUser user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            if (user.UserName == User.Identity.Name)
+            {
+                return Content("Something went wrong!");
+            }
+
+            IdentityResult addResult = await _userManager.AddToRoleAsync(user, role);
+            if (!addResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Something went wrong!");
+                UserVM userVM = await GetUserVM(user);
+                return View(userVM);
+            }
+
+            string oldRole = (await _userManager.GetRolesAsync(user))[0];
+
+            IdentityResult removeResult = await _userManager.RemoveFromRoleAsync(user,oldRole);
+            if (!removeResult.Succeeded)
+            {
+                ModelState.AddModelError("","Something went wrong!");
+                UserVM userVM = await GetUserVM(user);
+                return View(userVM);
+            }
+            
+            return RedirectToAction(nameof(Index));
+        }
+        
+        private async Task<UserVM> GetUserVM(AppUser user)
+        {
+            List<string> roles = new List<string>();
+            foreach (var item in Enum.GetValues(typeof(Roles)))
+            {
+                roles.Add(item.ToString());
+            }
+            UserVM userVM = new UserVM
+            {
+                Id = user.Id,
+                Fullname = user.Fullname,
+                Email = user.Email,
+                Username = user.UserName,
+                IsDeleted = user.IsDeleted,
+                Role = (await _userManager.GetRolesAsync(user))[0],
+                Roles = roles
+            };
+            return userVM;
         }
     }
 }

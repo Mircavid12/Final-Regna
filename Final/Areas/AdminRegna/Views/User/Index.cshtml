@@ -59,7 +59,9 @@
                                         Enabled
                                     </td>
                                 }
-                                <td>
+                            <td>
+                                @if (user.Username != User.Identity.Name)
+                                {
                                     @if (user.IsDeleted)
                                     {
                                         <a asp-controller="User" asp-action="ChangeStatus" asp-route-id="@user.Id" class="btn btn-success">
@@ -72,14 +74,17 @@
                                             Disable
                                         </a>
                                     }
-
-                                    <a asp-controller="User" asp-action="ResetPassword" asp-route-id="@user.Id" class="btn btn-warning">
-                                        Reset Password
-                                    </a>
+                                }
+                                <a asp-controller="User" asp-action="ResetPassword" asp-route-id="@user.Id" class="btn btn-warning">
+                                    Reset Password
+                                </a>
+                                @if (user.Username != User.Identity.Name)
+                                {
                                     <a asp-controller="User" asp-action="ChangeRole" asp-route-id="@user.Id" class="btn btn-secondary">
                                         Change Role
                                     </a>
-                                </td>
+                                }
+                            </td>
                             </tr>
                         }
                     </tbody>

@@ -16,9 +16,11 @@ header {
                         font-family: 'Poppins', sans-serif;
                         font-weight: 400;
                         transition: all 0.3s;
+                        padding: 8px 20px;
 
                         &:hover {
                             color: #2dc997 !important;
+                            border: none;
                         }
                     }
                 }
@@ -30,10 +32,10 @@ header {
                         border-radius: 2px;
                         font-weight: 500;
                         border: 1px solid white;
-
+                        background-color:white;
                         &:hover {
-                            color: white !important;
-                            background-color: #2dc997;
+                            color: #2dc997;
+                            background-color: transparent;
                             border: 1px solid #2dc997;
                         }
                     }
@@ -45,9 +47,10 @@ header {
         }
     }
 }
-nav.nav-scroll{
+nav.nav-scroll {
     position: fixed !important;
     background: rgba(33, 33, 41, 0.9) !important;
+    transition: all 0.7s ease-in-out;
 }
 
 #particle-canvas {
@@ -72,7 +75,7 @@ nav.nav-scroll{
             padding: 0;
             text-align: center;
             top: 38%;
-            left: 50%;
+            left: 51%;
             z-index: 12;
             -webkit-transform: translate3d(-50%,-50%,0);
             transform: translate3d(-50%,-50%,0);
@@ -81,7 +84,7 @@ nav.nav-scroll{
         h2 {
             position: absolute;
             top: 46%;
-            left: 20%;
+            left: 21%;
             color: #eee;
             font-size: 24px;
             font-family: 'Poppins', sans-serif;
@@ -91,7 +94,7 @@ nav.nav-scroll{
         a {
             position: absolute;
             top: 59%;
-            left: 43.5%;
+            left: 44%;
             color: white;
             text-decoration: none;
             font-size: 16px;
@@ -99,7 +102,7 @@ nav.nav-scroll{
             text-transform: uppercase;
             letter-spacing: 1px;
             border: 2px solid white;
-            padding: 8px 30px;
+            padding: 10px 60px;
             transition: 0.5s all;
 
             &:hover {
@@ -305,7 +308,6 @@ nav.nav-scroll{
         border: 2px solid white;
         padding: 8px 30px;
         transition: 0.5s all;
-        margin-top: 50px;
 
         &:hover {
             background-color: #2dc997;
