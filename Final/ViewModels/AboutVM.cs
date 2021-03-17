@@ -10,5 +10,6 @@ namespace Final.ViewModels
     {
         public About About { get; set; }
         public List<AboutDetail> AboutDetails { get; set; }
+        public List<Services> Services { get; set; }
     }
 }

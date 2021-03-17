@@ -33,13 +33,12 @@
                     <form method="post" asp-action="Indexx">
                         <div class="mb-3 first-last">
                             <div class="mb-3 firstName">
-                                <input
-                                       asp-for="@Model.Email.FirstName"
+                                <input asp-for="@Model.Email.FirstName"
                                        type="text"
                                        class="form-control"
                                        id="exampleInputEmail1"
                                        aria-describedby="emailHelp"
-                                       placeholder="FirstName" />
+                                       placeholder="Ad" />
                                 <span asp-validation-for="@Model.Email.FirstName" class="text-danger"></span>
                             </div>
 
@@ -48,15 +47,23 @@
                                        type="text"
                                        class="form-control"
                                        id="exampleInputPassword1"
-                                       placeholder="LastName" />
+                                       placeholder="Soyad" />
                                 <span asp-validation-for="@Model.Email.LastName" class="text-danger"></span>
                             </div>
                         </div>
 
-                        <div class="mb-3 d-flex">
+                        <div class="mb-3 d-flex input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">+994</div>
+                            </div>
                             <select asp-for="Email.PhoneSerie" class="form-select select-number" id="inputGroupSelect01">
-                                <option selected>050</option>
-                                
+
+                                @foreach (var serie in ViewBag.PhoneSeries)
+                                {
+                                    <option>@serie.Number</option>
+
+
+                                }
                             </select>
                             <input asp-for="@Model.Email.PhoneNumber"
                                    type="tel"
@@ -67,7 +74,7 @@
                             <span asp-validation-for="@Model.Email.PhoneNumber" class="text-danger"></span>
                         </div>
                         <div class="input-group mb-3">
-                            <select asp-for="Email.Service"  class="form-select select-service" id="inputGroupSelect01">
+                            <select asp-for="Email.Service" class="form-select select-service" id="inputGroupSelect01">
                                 <option selected>Xidmət növünü seçin</option>
                                 @foreach (var mainCtg in ViewBag.Service)
                                 {
@@ -80,11 +87,16 @@
                                    type="text"
                                    class="form-control"
                                    id="exampleInputPassword1"
-                                   placeholder="Message" />
+                                   placeholder="Əlavə mesaj" />
                             <span asp-validation-for="@Model.Email.Message" class="text-danger"></span>
                         </div>
-                        <button type="submit"  class="btn send_btn">Göndər</button>
+                        <button type="submit" class="btn send_btn">Göndər</button>
+
                     </form>
+                    @if (TempData["Success"] != null)
+                    {
+                        <p class="alert alert-success mt-3" id="successMessage">@TempData["Success"]</p>
+                    }
                 </div>
             </div>
         </div>

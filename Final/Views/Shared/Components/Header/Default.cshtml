@@ -37,11 +37,11 @@
                     </li>
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li class="nav-item">
-                            <a class="nav-link text-white" style=" border:1px solid white" aria-current="page" asp-controller="Account" asp-action="Login">Daxil ol</a>
+                        <li class="nav-item log ml-5">
+                            <a class="nav-link" id="log"  aria-current="page" asp-controller="Account" asp-action="Login">Daxil ol</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" style="margin-right:10px; border:1px solid white; background-color:#2dc997;" aria-current="page" asp-controller="Account" asp-action="Register">Qeydiyyat</a>
+                        <li class="nav-item reg">
+                            <a class="nav-link" id="reg" style="margin-left:10px;"  aria-current="page" asp-controller="Account" asp-action="Register">Qeydiyyat</a>
                         </li>
 
                     }
@@ -52,13 +52,13 @@
                         <i class="far fa-user"></i>
                     </a>
                     <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" style="cursor:not-allowed; color: #2dc997">Username: @User.Identity.Name</a></li>
-                        <li><a class="dropdown-item text-center" asp-controller="Account" asp-action="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        <li><a class="dropdown-item" style="cursor:not-allowed; color: #2dc997">İstifadəçi: @User.Identity.Name</a></li>
+                        <li><a class="dropdown-item text-center" asp-controller="Account" asp-action="Logout"><i class="fas fa-sign-out-alt"></i> Çıxış</a></li>
                     </ul>
                 </li>
                     }
-                    <li class="nav-item apply" style="margin-top: 5px;">
-                        <a style="text-decoration: none; color: #2dc997" class="rounded-pill" aria-current="page" asp-controller="Apply" asp-action="Index">Müraciət et</a>
+                    <li class="nav-item apply" >
+                        <a style="text-decoration: none; color: #2dc997; margin-left:30px;" class="l" aria-current="page" asp-controller="Apply" asp-action="Index">Müraciət et</a>
                     </li>
                 </ul>
             </div>

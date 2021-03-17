@@ -404,3 +404,8 @@ C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcor
 C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcoreapp3.1\Final.genruntimeconfig.cache
 C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcoreapp3.1\Razor\Areas\AdminRegna\Views\User\ResetPassword.cshtml.g.cs
 C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcoreapp3.1\Razor\Areas\AdminRegna\Views\User\ChangeRole.cshtml.g.cs
+C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcoreapp3.1\Razor\Areas\AdminRegna\Views\Portfolio\Update.cshtml.g.cs
+C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcoreapp3.1\Razor\Areas\AdminRegna\Views\Portfolio\Delete.cshtml.g.cs
+C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcoreapp3.1\Razor\Areas\AdminRegna\Views\Portfolio\Detail.cshtml.g.cs
+C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcoreapp3.1\Razor\Areas\AdminRegna\Views\AboutDetail\Index.cshtml.g.cs
+C:\Users\Power Electronics\source\repos\Final\Final-Regna\Final\obj\Debug\netcoreapp3.1\Razor\Areas\AdminRegna\Views\AboutDetail\Update.cshtml.g.cs

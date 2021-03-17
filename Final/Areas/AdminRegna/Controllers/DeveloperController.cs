@@ -130,6 +130,11 @@ namespace Final.Areas.AdminRegna.Controllers
                 viewDeveloper.Image = fileName;
             }
             viewDeveloper.Name = Developers.Name;
+            viewDeveloper.developerDetails.Degree = Developers.developerDetails.Degree;
+            viewDeveloper.developerDetails.experience = Developers.developerDetails.experience;
+            viewDeveloper.developerDetails.hobbies = Developers.developerDetails.hobbies;
+            viewDeveloper.developerDetails.faculty = Developers.developerDetails.faculty;
+            viewDeveloper.developerDetails.Description = Developers.developerDetails.Description;
             Developers.IsDeleted = false;
 
             await _db.SaveChangesAsync();

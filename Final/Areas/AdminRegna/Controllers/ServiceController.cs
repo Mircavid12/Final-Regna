@@ -30,18 +30,41 @@ namespace Final.Areas.AdminRegna.Controllers
         }
 
         #region Create
+        [HttpGet]
         public IActionResult Create()
         {
+            GetDevelopers();
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Services Services)
+        public async Task<IActionResult> Create(Services Services, List<int> developerId)
         {
+            GetDevelopers();
             //if (!ModelState.IsValid)
             //{
             //    return NotFound();
             //}
+            if (developerId==null)
+            {
+                ModelState.AddModelError("", "Select Developers");
+                return View();
+            }
+            //Services services = new Services();
+            List<ServiceDevelopers> sd = new List<ServiceDevelopers>();
+            foreach (int item in developerId)
+            {
+                ServiceDevelopers serviceDevelopers = new ServiceDevelopers()
+                {
+                    DevelopersId = item,
+                    ServicesId = Services.Id,
+                    Services = Services
+                };
+                sd.Add(serviceDevelopers);
+                await _db.ServiceDevelopers.AddAsync(serviceDevelopers);
+            }
+
+            Developers developers = _db.Developers.Include(sd => sd.ServiceDevelopers).ThenInclude(s => s.Services).FirstOrDefault(d=>d.IsDeleted==false);
             bool IsExist = _db.Services.Where(t => t.IsDeleted == false).Any(td => td.Title.ToLower() == Services.Title.ToLower());
             if (IsExist)
             {
@@ -66,6 +89,7 @@ namespace Final.Areas.AdminRegna.Controllers
             string folder = Path.Combine("images", "service");
             string fileName = await Services.ServiceDetails.Photo.SaveImageAsync(_env.WebRootPath, folder);
             Services.ServiceDetails.Image = fileName;
+            Services.ServiceDevelopers = sd;
             Services.IsDeleted = false;
 
             await _db.Services.AddAsync(Services);
@@ -101,6 +125,7 @@ namespace Final.Areas.AdminRegna.Controllers
         #region Update
         public IActionResult Update(int? id)
         {
+            GetDevelopers();
             if (id == null) return NotFound();
             Services Services = _db.Services.Include(t => t.ServiceDetails).Include(ts => ts.ServiceDevelopers).FirstOrDefault(t => t.Id == id && t.IsDeleted == false);
             if (Services == null) return NotFound();
@@ -108,11 +133,28 @@ namespace Final.Areas.AdminRegna.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(Services Services, int? id)
+        public async Task<IActionResult> Update(Services Services, int? id, List<int> developerId)
         {
-            Services viewService = _db.Services.Include(td => td.ServiceDetails).Include(ts => ts.ServiceDevelopers)
+            GetDevelopers();
+            Services viewService = _db.Services.Include(td => td.ServiceDetails).Include(ts => ts.ServiceDevelopers).ThenInclude(d=>d.Developers)
                    .FirstOrDefault(t => t.Id == id && t.IsDeleted == false);
-
+            List<ServiceDevelopers> sd = new List<ServiceDevelopers>();
+            foreach (int item in developerId)
+            {
+                ServiceDevelopers serviceDevelopers = new ServiceDevelopers()
+                {
+                    DevelopersId = item,
+                    ServicesId = Services.Id,
+                };
+                    sd.Add(serviceDevelopers);
+                    await _db.ServiceDevelopers.AddAsync(serviceDevelopers);
+                if (item ==serviceDevelopers.Developers.Id)
+                {
+                    ModelState.AddModelError("", "Artiq movcuddur");
+                }
+                    await _db.SaveChangesAsync();
+                
+            }
             if (Services.ServiceDetails.Photo != null)
             {
                 if (!Services.ServiceDetails.Photo.IsImage())
@@ -141,11 +183,18 @@ namespace Final.Areas.AdminRegna.Controllers
         #region Detail
         public IActionResult Detail(int? id)
         {
+            GetDevelopers();
             if (id == null) return NotFound();
             Services Services = _db.Services.Where(t => t.IsDeleted == false).Include(t => t.ServiceDetails).Include(ts => ts.ServiceDevelopers).FirstOrDefault(t => t.Id == id);
             if (Services == null) return NotFound();
             return View(Services);
         }
         #endregion
+
+        private void GetDevelopers()
+        {
+            ViewBag.GetDeveloper = _db.Developers.Where(d => d.IsDeleted == false).ToList();
+            ViewBag.GetServices = _db.Services.Where(d => d.IsDeleted == false).ToList();
+        }
     }
 }

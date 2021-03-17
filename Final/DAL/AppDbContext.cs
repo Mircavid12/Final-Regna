@@ -34,5 +34,7 @@ namespace Final.DAL
         public DbSet<Apply> Applies { get; set; }
         public DbSet<PortfolioImages> PortfolioImages { get; set; }
         public DbSet<ApplyNumberSerie> ApplyNumberSeries { get; set; }
+        public DbSet<PhoneSeries> PhoneSeries { get; set; }
+        public DbSet<ServiceDevelopers> ServiceDevelopers { get; set; }
     }
 }

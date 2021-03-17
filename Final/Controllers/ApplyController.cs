@@ -21,16 +21,19 @@ namespace Final.Controllers
         public IActionResult Index(int? ServiceId)
         {
             GetServices();
+            GetPhoneSeries();
             ApplyVM applyVM = new ApplyVM()
             {
                 Apply= _db.Applies.Where(c => c.IsDeleted == false).FirstOrDefault()
             };
+            
             return View(applyVM);
         }
 
         [HttpPost]
         public IActionResult Indexx(Email email)
         {
+            
             System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
             {
                 Host = "smtp.gmail.com",
@@ -45,21 +48,26 @@ namespace Final.Controllers
                 }
             };
             MailAddress fromEmail = new MailAddress("mirjavidaa@code.edu.az",email.FirstName+" "+email.LastName);
-            MailAddress toEmail = new MailAddress("mirjavidaa@code.edu.az", "Miri");
+            MailAddress toEmail = new MailAddress("mirjavidaa@code.edu.az", "Müraciət");
             MailMessage message = new MailMessage()
             {
                 From = fromEmail,
                 Subject = email.Service,
-                Body = $" Adı: {email.FirstName+" "+email.LastName}{System.Environment.NewLine} Nömrəsi: {"+994 "+email.PhoneSerie+email.PhoneNumber}{System.Environment.NewLine} Xidmət növü: {email.Service} {System.Environment.NewLine} Mesaj: {email.Message} "
+                Body = $" Adı: {email.FirstName+" "+email.LastName}{System.Environment.NewLine} Nömrəsi: {"+994"+email.PhoneSerie+email.PhoneNumber}{System.Environment.NewLine} Xidmət növü: {email.Service} {System.Environment.NewLine} Mesaj: {email.Message} "
             };
             message.To.Add(toEmail);
             client.Send(message);
+            TempData["Success"] = "Müraciətiniz qəbul olundu! Tezliklə sizlə əlaqə saxlanılacaq.";
             return RedirectToAction("Index", "Apply");
         }
 
         private void GetServices()
         {
             ViewBag.Service = _db.Services.Where(c => c.IsDeleted == false).ToList();
+        }
+        private void GetPhoneSeries()
+        {
+            ViewBag.PhoneSeries = _db.PhoneSeries.Where(c => c.isDeleted == false).ToList();
         }
     }
 }

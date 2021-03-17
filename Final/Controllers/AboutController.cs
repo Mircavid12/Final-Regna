@@ -20,7 +20,9 @@ namespace Final.Controllers
             AboutVM aboutVM = new AboutVM
             {
                 About = _db.Abouts.Where(a => a.IsDeleted == false).FirstOrDefault(),
-                AboutDetails = _db.AboutDetails.Where(ad => ad.IsDeleted == false).ToList()
+                AboutDetails = _db.AboutDetails.Where(ad => ad.IsDeleted == false).ToList(),
+                Services = _db.Services.Where(s=>s.IsDeleted==false).ToList()
+                
             };
             return View(aboutVM);
         }

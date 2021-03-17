@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
+    <div class="preloader"> <img class="preloader-icon" src="/images/preloader/Snake.gif" alt="My Site Preloader"></div>
     @await Component.InvokeAsync("Header")
     @RenderBody()
     @await Component.InvokeAsync("Footer")

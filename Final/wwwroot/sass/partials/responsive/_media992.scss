@@ -1,5 +1,85 @@
 @media only screen and(max-width:992px){
+    header {
+        .navbar {
+            .container-fluid {
+                .navbar-collapse {
+
+                    ul {
+                        background: rgb(33, 33, 41);
+                        padding: 20px 20px 40px 20px;
+
+                        .log {
+                            margin-left: 3px;
+                            width: 27%;
+                            margin-top: 5px;
+
+                            a {
+                                width: 120px;
+                                border-bottom-right-radius: 40px;
+                                border-top-right-radius: 40px;
+                            }
+                        }
+
+                        .reg {
+                            margin-left: 3px;
+                            margin-top: 5px;
+
+                            a {
+                                width: 120px;
+                                border-bottom-left-radius: 40px;
+                                border-top-left-radius: 40px;
+                            }
+                        }
+
+                        .apply {
+                            margin-left: 5px;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+
+                padding: 25px 30px;
+            }
+        }
+    }
     #intro{
         padding: 150px 0 300px 0;
+    }
+    #particle-canvas {
+        .content {
+            h1 {
+                font-size: 28px;
+                transform: translate3d(0%, -50%, 0);
+                left: 4%;
+                right: 4%;
+            }
+
+            h2 {
+                left: 110px;
+                right: 110px;
+                top: 44%;
+                font-size: 18px;
+                line-height: 24px;
+                margin-bottom: 30px;
+            }
+
+            a {
+                left: 20%;
+                right: 20%;
+                top: 56%;
+            }
+        }
+    }
+    #about {
+        .about-photo {
+            img {
+                margin-left: -60px;
+            }
+        }
+    }
+    #parallax{
+        h3, p{
+            text-align:center;
+        }
     }
 }

@@ -1,14 +1,75 @@
 * {
   box-sizing: border-box;
 }
+.preloader {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 9999;
+    text-align: center;
+}
+
+.preloader-icon {
+    position: relative;
+    top: 45%;
+    width: 100px;
+    border-radius: 50%;
+    animation: shake 1.5s infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, -1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(1px, -3px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(1px, -5px) rotate(-3deg);
+    }
+
+    30% {
+        transform: translate(1px, -7px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -9px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(1px, -11px) rotate(3deg);
+    }
+
+    60% {
+        transform: translate(1px, -9px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(1px, -7px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(1px, -5px) rotate(-3deg);
+    }
+
+    90% {
+        transform: translate(1px, -3px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -1px) rotate(-1deg);
+    }
+}
+
 
 header .navbar .container-fluid {
   background-color: transparent;
   padding: 13px 20px 13px 120px;
-}
-
-header .navbar .container-fluid ul {
-  padding-right: 5%;
 }
 
 header .navbar .container-fluid ul li {
@@ -27,19 +88,42 @@ header .navbar .container-fluid ul li {
         color: #2dc997 !important;
         border: none;
     }
-
-    header .navbar .container-fluid ul .apply a {
-        color: white;
-        padding: 8px 20px;
-        border-radius: 2px;
-        font-weight: 500;
-        border: 1px solid white;
-        background-color: white;
+    header .navbar .container-fluid ul li #log {
+        background-color: transparent;
+        border: 1px solid #2dc997;
+        color: #2dc997;
     }
+
+        header .navbar .container-fluid ul li #log:hover {
+            color: #2dc997 !important;
+            border: 1px solid #2dc997;
+            background-color: transparent;
+        }
+    header .navbar .container-fluid ul li #reg {
+        background-color: #2dc997;
+        border: 1px solid #2dc997;
+        color:white;
+    }
+    header .navbar .container-fluid ul li #reg:hover {
+        color: #2dc997 !important;
+        border: 1px solid #2dc997;
+        background-color: transparent;
+    }
+    header .navbar .container-fluid ul .apply {
+        margin-top: 5px;
+    }
+        header .navbar .container-fluid ul .apply a {
+            color: white;
+            padding: 8px 20px;
+            border-radius: 2px;
+            font-weight: 500;
+            border: 1px solid #2dc997;
+            background-color: rgba(33, 33, 41, 0.9);
+        }
 
         header .navbar .container-fluid ul .apply a:hover {
             color: #2dc997;
-            background-color: transparent;
+            background-color: white;
             border: 1px solid #2dc997;
         }
 
@@ -163,9 +247,11 @@ nav.nav-scroll {
   z-index: 1;
 }
 
-#about .about-photo img {
-  margin-left: -125px;
-}
+    #about .about-photo img {
+        margin-left: 0;
+        margin-top: 70px;
+        max-width: 120%;
+    }
 
 #facts {
   background: #f7f7f7;
@@ -1480,21 +1566,22 @@ button:focus {
   float: right;
 }
 
-#apply form .select-number {
-  padding: 15px 20px;
-  position: absolute;
-  border: none;
-  top: 89px;
-  left: 16px;
-  color: #999;
-}
+    #apply form .select-number {
+        padding: 15px 10px;
+        position: absolute;
+        border: none;
+        top: 1px;
+        left: 63px;
+        color: #999;
+        z-index: 5;
+    }
 
 #apply form .select-number:focus {
   outline: none;
 }
 
 #apply form .number-input {
-  padding: 27px 27px 27px 120px;
+  padding: 27px 27px 27px 80px;
 }
 
 #apply form .select-service {
@@ -1521,122 +1608,276 @@ button:focus {
         font-family: "Open Sans", sans-serif;
     }
 
-@media only screen and (max-width: 576px) {
-  header .navbar .container-fluid {
-    padding-left: 20px;
-  }
-  header .navbar .container-fluid .navbar-collapse ul {
-    background: #212129;
-    padding: 20px 20px 40px 20px;
-  }
-  #particle-canvas .content h1 {
-    font-size: 28px;
-    transform: translate3d(0%, -50%, 0);
-    left: 4%;
-    right: 4%;
-  }
-  #particle-canvas .content h2 {
-    left: 0;
-    top: 44%;
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
-  #particle-canvas .content a {
-    left: 20%;
-    right: 20%;
-    top: 56%;
-  }
-  #about {
-    padding: 40px 0;
-  }
-  #about h2 {
-    text-align: center;
-  }
-  #about p {
-    text-align: center;
-  }
-  #about img {
-    display: none;
-  }
-  #portfolio ul .logo {
-    display: inline-block;
-    margin-left: 30px;
-    margin-top: 10px;
-  }
-  #parallax {
-    padding: 40px 0;
-  }
-  #parallax h3 {
-    text-align: center;
-  }
-  #parallax p {
-    text-align: center;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  header .navbar .container-fluid {
-    padding: 25px 30px;
-  }
-  header .navbar .container-fluid .navbar-collapse ul {
-    background: #212129;
-    padding: 20px 20px 40px 20px;
-  }
-  #particle-canvas .content h1 {
-    font-size: 28px;
-    transform: translate3d(0%, -50%, 0);
-    left: 4%;
-    right: 4%;
-  }
-  #particle-canvas .content h2 {
-    left: 8%;
-    right: 8%;
-    top: 44%;
-    font-size: 17px;
-    line-height: 24px;
-  }
-  #particle-canvas .content a {
-    left: 20%;
-    right: 20%;
-    top: 53%;
-  }
-  #about {
-    padding: 40px 0;
-  }
-  #about h2 {
-    text-align: center;
-  }
-  #about p {
-    text-align: center;
-  }
-  #about img {
-    display: none;
-  }
-  #portfolio ul .logo {
-    display: inline-block;
-    margin-left: 30px;
-    margin-top: 10px;
-  }
-  #parallax {
-    padding: 40px 0;
-  }
-  #parallax h3 {
-    text-align: center;
-  }
-  #parallax p {
-    text-align: center;
-  }
-}
-
 @media only screen and (max-width: 992px) {
-  #intro {
-    padding: 150px 0 300px 0;
-  }
-}
+    header .navbar .container-fluid {
+        padding: 25px 30px;
+    }
 
-@media only screen and (max-width: 1200px) {
-  #intro {
-    padding: 150px 0 250px 0;
-  }
-}
+        header .navbar .container-fluid .navbar-collapse ul {
+            background: #212129;
+            padding: 20px 20px 40px 20px;
+        }
+
+            header .navbar .container-fluid .navbar-collapse ul .log {
+                margin-left: 3px;
+                width: 27%;
+                margin-top: 5px;
+            }
+
+                header .navbar .container-fluid .navbar-collapse ul .log a {
+                    border-bottom-right-radius: 40px;
+                    border-top-right-radius: 40px;
+                    width: 120px;
+                }
+
+            header .navbar .container-fluid .navbar-collapse ul .reg {
+                margin-left: 3px;
+                margin-top: 5px;
+            }
+
+                header .navbar .container-fluid .navbar-collapse ul .reg a {
+                    width: 120px;
+                    border-bottom-left-radius: 40px;
+                    border-top-left-radius: 40px;
+                }
+
+            header .navbar .container-fluid .navbar-collapse ul .apply {
+                margin-left: 5px;
+                margin-top: 10px;
+            }
+
+    #intro {
+        padding: 150px 0 300px 0;
+    }
+
+    #particle-canvas .content h1 {
+        font-size: 28px;
+        transform: translate3d(0%, -50%, 0);
+        left: 4%;
+        right: 4%;
+    }
+
+    #particle-canvas .content h2 {
+        left: 110px;
+        right: 110px;
+        top: 44%;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+
+    #particle-canvas .content a {
+        left: 20%;
+        right: 20%;
+        top: 56%;
+    }
+
+    #about .about-photo img {
+        margin-left: -60px;
+    }
+
+    #parallax h3 {
+        text-align: center;
+    }
+
+    #parallax p {
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 768px) {
+        header .navbar .container-fluid {
+            padding: 25px 30px;
+        }
+
+            header .navbar .container-fluid .navbar-collapse ul {
+                background: #212129;
+                padding: 20px 20px 40px 20px;
+            }
+
+                header .navbar .container-fluid .navbar-collapse ul .log {
+                    margin-left: 3px;
+                    width: 27%;
+                    margin-top: 5px;
+                }
+
+                    header .navbar .container-fluid .navbar-collapse ul .log a {
+                        border-bottom-right-radius: 40px;
+                        border-top-right-radius: 40px;
+                        width: 120px;
+                    }
+
+                header .navbar .container-fluid .navbar-collapse ul .reg {
+                    margin-left: 3px;
+                    margin-top: 5px;
+                }
+
+                    header .navbar .container-fluid .navbar-collapse ul .reg a {
+                        width: 120px;
+                        border-bottom-left-radius: 40px;
+                        border-top-left-radius: 40px;
+                    }
+
+                header .navbar .container-fluid .navbar-collapse ul .apply {
+                    margin-left: 5px;
+                    margin-top: 10px;
+                }
+
+        #particle-canvas .content h1 {
+            font-size: 28px;
+            transform: translate3d(0%, -50%, 0);
+            left: 4%;
+            right: 4%;
+        }
+
+        #particle-canvas .content h2 {
+            left: 8%;
+            right: 8%;
+            top: 44%;
+            font-size: 17px;
+            line-height: 24px;
+        }
+
+        #particle-canvas .content a {
+            left: 20%;
+            right: 20%;
+            top: 56%;
+        }
+
+        #about {
+            padding: 40px 0;
+        }
+
+            #about h2 {
+                text-align: center;
+            }
+
+            #about p {
+                text-align: center;
+            }
+
+            #about img {
+                display: none;
+            }
+
+        #portfolio ul .logo {
+            display: inline-block;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        #parallax {
+            padding: 40px 0;
+        }
+
+            #parallax h3 {
+                text-align: center;
+            }
+
+            #parallax p {
+                text-align: center;
+            }
+    }
+
+
+    @media only screen and (max-width: 576px) {
+        header .navbar .container-fluid {
+            padding-left: 20px;
+        }
+
+            header .navbar .container-fluid .navbar-collapse ul {
+                background: #212129;
+                padding: 20px 20px 40px 20px;
+            }
+
+                header .navbar .container-fluid .navbar-collapse ul .log {
+                    margin-left: 3px;
+                    width: 27%;
+                    margin-top: 5px;
+                }
+
+                    header .navbar .container-fluid .navbar-collapse ul .log a {
+                        border-bottom-right-radius: 40px;
+                        border-top-right-radius: 40px;
+                        width: 120px;
+                    }
+
+                header .navbar .container-fluid .navbar-collapse ul .reg {
+                    margin-left: 3px;
+                    margin-top: 5px;
+                }
+
+                    header .navbar .container-fluid .navbar-collapse ul .reg a {
+                        width: 120px;
+                        border-bottom-left-radius: 40px;
+                        border-top-left-radius: 40px;
+                    }
+
+                header .navbar .container-fluid .navbar-collapse ul .apply {
+                    margin-left: 5px;
+                    margin-top: 10px;
+                }
+
+        #particle-canvas .content h1 {
+            font-size: 28px;
+            transform: translate3d(0%, -50%, 0);
+            left: 4%;
+            right: 4%;
+        }
+
+        #particle-canvas .content h2 {
+            left: 20px;
+            right: 20px;
+            top: 44%;
+            font-size: 18px;
+            line-height: 24px;
+            margin-bottom: 30px;
+        }
+
+        #particle-canvas .content a {
+            left: 20%;
+            right: 20%;
+            top: 56%;
+        }
+
+        #about {
+            padding: 40px 0;
+        }
+
+            #about h2 {
+                text-align: center;
+            }
+
+            #about p {
+                text-align: center;
+            }
+
+            #about img {
+                display: none;
+            }
+
+        #portfolio ul .logo {
+            display: inline-block;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        #parallax {
+            padding: 40px 0;
+        }
+
+            #parallax h3 {
+                text-align: center;
+            }
+
+            #parallax p {
+                text-align: center;
+            }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        #intro {
+            padding: 150px 0 250px 0;
+        }
+    }
+
+

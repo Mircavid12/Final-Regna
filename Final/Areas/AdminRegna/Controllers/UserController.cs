@@ -158,6 +158,10 @@ namespace Final.Areas.AdminRegna.Controllers
                 return Content("Something went wrong!");
             }
 
+            
+            
+
+            string oldRole = (await _userManager.GetRolesAsync(user))[0];
             IdentityResult addResult = await _userManager.AddToRoleAsync(user, role);
             if (!addResult.Succeeded)
             {
@@ -165,9 +169,6 @@ namespace Final.Areas.AdminRegna.Controllers
                 UserVM userVM = await GetUserVM(user);
                 return View(userVM);
             }
-
-            string oldRole = (await _userManager.GetRolesAsync(user))[0];
-
             IdentityResult removeResult = await _userManager.RemoveFromRoleAsync(user,oldRole);
             if (!removeResult.Succeeded)
             {

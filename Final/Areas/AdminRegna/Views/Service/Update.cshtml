@@ -1,6 +1,7 @@
 ﻿@model Services
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
+    
 }
 
 <div class="col-12 grid-margin stretch-card">
@@ -33,6 +34,36 @@
                     <label asp-for="@Model.ServiceDetails.Photo"></label>
                     <input asp-for="@Model.ServiceDetails.Photo" class="form-control" placeholder="Select Photo">
                     <span class="text-danger" asp-validation-for="@Model.ServiceDetails.Photo"></span>
+                </div>
+                <div class="form-group" id="developers">
+                    <fieldset name="developerId">
+
+
+
+                        @foreach (Developers dv in ViewBag.GetDeveloper)
+                        {
+                            @foreach (ServiceDevelopers sd in Model.ServiceDevelopers)
+                            {
+                                if (dv.Id == sd.Developers.Id)
+                                {
+
+                        <h5>@dv.Name</h5>                                }
+                            }
+                        }
+                    </fieldset>
+                </div>
+                <h2>Add Developers</h2>
+                <div class="form-group" id="developers">
+                    <fieldset name="developerId">
+
+
+
+                        @foreach (Developers dv in ViewBag.GetDeveloper)
+                        {
+                                    <input type="checkbox"  name="developerId" value="@dv.Id" /><label class="ml-4" for="track">  @dv.Name</label><br />
+                                
+                        }
+                    </fieldset>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Update</button>
                 <a class="btn btn-light" asp-action="Index">Cancel</a>

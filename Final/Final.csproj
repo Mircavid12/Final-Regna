@@ -31,6 +31,8 @@
     <Compile Remove="Migrations\20210225085956_CreateSomeRelationsOnTable.Designer.cs" />
     <Compile Remove="Migrations\20210225154303_CreateSomeRelationsOnTable.cs" />
     <Compile Remove="Migrations\20210225154303_CreateSomeRelationsOnTable.Designer.cs" />
+    <Compile Remove="Migrations\20210313145152_CreateNumberSerie.cs" />
+    <Compile Remove="Migrations\20210313145152_CreateNumberSerie.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 about-content">
-                    <h2 data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">@Model.About.Title</h2>
+                    <h2 data-aos="fade-right">@Model.About.Title</h2>
                     <p data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                         @Model.About.Description
                     </p>
@@ -65,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="header text-center" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <div class="header text-center">
                         <h3>@Model.Facts.Title</h3>
                         <p>
                             @Model.Facts.Description
@@ -90,11 +90,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="service-header text-center" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <div class="service-header text-center" >
                         <h3>Xİdmətlər</h3>
                         <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque
+                            Bütün işlərinizdə sizin xidmətinizdəyik
                         </p>
                     </div>
                 </div>
@@ -131,7 +130,7 @@
                         @Model.Parallax.Description
                     </p>
                 </div>
-                <div class="col-lg-3 mt-5">
+                <div class="col-lg-3 mt-5 text-center">
                     <a asp-controller="Apply" asp-action="Index" class="btn rounded-pill">Müraciət et</a>
                 </div>
             </div>
@@ -142,10 +141,10 @@
     <section id="portfolio" style="background: #f7f7f7;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                <div class="col-lg-12">
                     <div class="header-content text-center">
                         <h3>Proyektlər</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                        <p>Qısa müddətdə hazır edəcəyimiz hər işə zəmanət veririk, hər şey ürəyinizcə olacaq</p>
                     </div>
                 </div>
             </div>
@@ -163,7 +162,7 @@
                 </div>
             </div>
             <div class="row grid">
-                @foreach (Portfolio portfolio in Model.Portfolios)
+                @foreach (Portfolio portfolio in Model.Portfolios.Take(12))
                 {
                 <div class="col-lg-3 portfolio-card @portfolio.Category all">
                     <a asp-controller="Portfolio" asp-action="PortfolioDetails" asp-route-id="@portfolio.Id">
@@ -189,9 +188,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="header-content text-center" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <div class="header-content text-center" >
                         <h3>Komandamız</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                        <p>İşlərinizi hər kəsə etibar etmək doğru olmaz, bu sahədə ixtisaslaşmış heyyətə güvənin</p>
                     </div>
                 </div>
             </div>

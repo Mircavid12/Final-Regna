@@ -34,8 +34,17 @@
                     <input asp-for="@Model.ServiceDetails.Photo" class="form-control" placeholder="Select Photo">
                     <span class="text-danger" asp-validation-for="@Model.ServiceDetails.Photo"></span>
                 </div>
+                <div class="form-group" id="developers">
+                    <fieldset name="developerId">
+
+                        @foreach (var mainCtg in ViewBag.GetDeveloper)
+                        {
+                            <input type="checkbox" name="developerId" value="@mainCtg.Id" /><label class="ml-4" for="track">  @mainCtg.Name</label><br />
+                        }
+                    </fieldset>
+                </div>
                 <button type="submit" class="btn btn-primary mr-2">Create</button>
-                <a class="btn btn-light" asp-action="Index">Cancel</a>
+                <a class="btn btn-light"  asp-action="Index">Cancel</a>
             </form>
         </div>
     </div>

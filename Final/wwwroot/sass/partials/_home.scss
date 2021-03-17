@@ -1,12 +1,74 @@
 *{
     box-sizing: border-box;
 }
+.preloader {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 9999;
+    text-align: center;
+}
 
+.preloader-icon {
+    position: relative;
+    top: 45%;
+    width: 100px;
+    border-radius: 50%;
+    animation: shake 1.5s infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, -1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(1px, -3px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(1px, -5px) rotate(-3deg);
+    }
+
+    30% {
+        transform: translate(1px, -7px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -9px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(1px, -11px) rotate(3deg);
+    }
+
+    60% {
+        transform: translate(1px, -9px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(1px, -7px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(1px, -5px) rotate(-3deg);
+    }
+
+    90% {
+        transform: translate(1px, -3px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -1px) rotate(-1deg);
+    }
+}
 header {
     .navbar {
         .container-fluid {
             ul {
-                padding-right: 5%;
 
                 li {
                     padding-right: 0px;
@@ -23,19 +85,45 @@ header {
                             border: none;
                         }
                     }
+
+                    #log {
+                        background-color: transparent;
+                        border: 1px solid #2dc997;
+                        color: #2dc997;
+
+                        &:hover {
+                            color: #2dc997 !important;
+                            border: 1px solid #2dc997;
+                            background-color: transparent;
+                        }
+                    }
+
+                    #reg {
+                        background-color: #2dc997;
+                        border: 1px solid #2dc997;
+                        color: white;
+
+                        &:hover {
+                            color: #2dc997 !important;
+                            border: 1px solid #2dc997;
+                            background-color: transparent;
+                        }
+                    }
                 }
 
                 .apply {
+                    margin-top:5px;
                     a {
                         color: white;
                         padding: 8px 20px;
                         border-radius: 2px;
                         font-weight: 500;
-                        border: 1px solid white;
-                        background-color:white;
+                        border: 1px solid #2dc997;
+                        background-color: rgba(33, 33, 41, 0.9) ;
+
                         &:hover {
                             color: #2dc997;
-                            background-color: transparent;
+                            background-color: white;
                             border: 1px solid #2dc997;
                         }
                     }
@@ -179,7 +267,9 @@ nav.nav-scroll {
         z-index: 1;
 
         img {
-            margin-left: -125px;
+            margin-left: 0;
+            margin-top:70px;
+            max-width: 120%;
         }
     }
 }

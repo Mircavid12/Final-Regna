@@ -55,7 +55,6 @@ namespace Final
                     {
                         authBuilder.RequireRole("Admin");
                     });
-
             });
         }
 

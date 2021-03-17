@@ -29,19 +29,19 @@
                         @Model.About.Description
                     </p>
                     @foreach (AboutDetail aboutDetail in Model.AboutDetails)
-                        {
-                <div class="content-part">
-                    <div class="icon-div">
-                        @Html.Raw(aboutDetail.Icon)
-                    </div>
-                    <div class="description">
-                        <h4 class="m-0">@aboutDetail.Title</h4>
-                        <p class="m-0">
-                            @aboutDetail.Description
-                        </p>
-                    </div>
-                </div>
-                        }
+                    {
+                        <div class="content-part">
+                            <div class="icon-div">
+                                @Html.Raw(aboutDetail.Icon)
+                            </div>
+                            <div class="description">
+                                <h4 class="m-0">@aboutDetail.Title</h4>
+                                <p class="m-0">
+                                    @aboutDetail.Description
+                                </p>
+                            </div>
+                        </div>
+                    }
                 </div>
                 <div class="col-lg-6 about-photo">
                     <img src="~/images/@Model.About.Image" alt="" />
@@ -50,6 +50,40 @@
         </div>
     </section>
     <!-- About section end -->
+    <!-- Services section start -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="service-header text-center">
+                        <h3>Ən çox müracİət edilən xİdmətlər</h3>
+                        <p>
+                            Bütün işlərinizdə sizin xidmətinizdəyik
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                @foreach (Services service in Model.Services.Take(3))
+                {
+                    <div class="col-lg-4 col-md-6 text-center mt-5" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                        <div class="service-card">
+                            <div class="icon mb-3">
+                                <a asp-controller="Service" asp-action="ServiceDetails" asp-route-id="@service.Id">
+                                    @Html.Raw(service.Icon)
+                                </a>
+                            </div>
+                            <h4>@service.Title</h4>
+                            <p>
+                                @service.Description
+                            </p>
+                        </div>
+                    </div>
+                }
 
+            </div>
+        </div>
+    </section>
+    <!-- Services section end -->
 </main>
 <!-- Main area end -->

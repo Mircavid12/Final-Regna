@@ -51,9 +51,9 @@ namespace Final.Areas.AdminRegna.Controllers
                     ModelState.AddModelError("", "Please select image type");
                     return View(viewAbout);
                 }
-                if (!About.Photo.MaxSize(250))
+                if (!About.Photo.MaxSize(1000))
                 {
-                    ModelState.AddModelError("", "Image size must be less than 250kb");
+                    ModelState.AddModelError("", "Image size must be less than 1000kb");
                     return View(viewAbout);
                 }
 

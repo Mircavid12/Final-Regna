@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     let nav = document.querySelector("nav")
 
@@ -31,7 +32,7 @@ $(document).ready(function () {
 
 
 
-
+window.onload = function () { document.querySelector(".preloader").style.display = "none"; }
 // Facts counter
 const counters = document.querySelectorAll('.counter');
 const speed = 200;

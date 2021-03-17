@@ -207,7 +207,7 @@ namespace Final.Migrations
 
                     b.HasIndex("ApplyId");
 
-                    b.ToTable("ApplyNumberSerie");
+                    b.ToTable("ApplyNumberSeries");
                 });
 
             modelBuilder.Entity("Final.Models.Bio", b =>
@@ -517,6 +517,24 @@ namespace Final.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Parallaxes");
+                });
+
+            modelBuilder.Entity("Final.Models.PhoneSeries", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PhoneSeries");
                 });
 
             modelBuilder.Entity("Final.Models.Portfolio", b =>
